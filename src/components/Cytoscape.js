@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import cytoscape from 'cytoscape';
 
+var elements = require('./elements.json');
+
 let cyStyle = {
   height: '400px',
   display: 'block'
@@ -10,26 +12,10 @@ class Cytoscape extends Component{
   cy = null;
 
   componentDidMount(){
+
     let cy = cytoscape({
       container: this.refs.cyelement, // container to render in
-
-      elements: [ // list of graph elements to start with
-        { // node a
-          data: { id: 'a' }
-        },
-        { // node b
-          data: { id: 'b' }
-        },
-        {
-          data: { id: 'c'}
-        },
-        { // edge ab
-          data: { id: 'ab', source: 'a', target: 'b' }
-        },
-        {
-          data: { id: 'bc', source: 'b', target: 'c'}
-        }
-        ],
+      elements: elements,
           style: [ // the stylesheet for the graph
         {
         selector: 'node',

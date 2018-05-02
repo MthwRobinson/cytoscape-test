@@ -4,7 +4,8 @@ import cytoscape from 'cytoscape';
 var elements = require('./elements.json');
 
 let cyStyle = {
-  height: '400px',
+  height: '600px',
+  width: '1200px',
   display: 'block'
 };
 
@@ -36,8 +37,22 @@ class Cytoscape extends Component{
         }
       ],
       layout: {
-        name: 'grid',
-        rows: 1
+        name: 'cose',
+        idealEdgeLength: 100,
+        nodeOverlap: 20,
+        refresh: 20,
+        fit: true,
+        padding: 30,
+        randomize: false,
+        componentSpacing: 100,
+        nodeRepulsion: 400000,
+        edgeElasticity: 100,
+        nestingFactor: 5,
+        gravity: 100,
+        numIter: 1000,
+        initialTemp: 200,
+        coolingFactor: 0.95,
+        minTemp: 1.0
       }
     });
 
